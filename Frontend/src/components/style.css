@@ -1,0 +1,191 @@
+  ::-webkit-scrollbar-track {
+    background-color:#fff !important;
+  }
+  ::-webkit-scrollbar {
+    width:8px;
+    background-color:#ffffff !important;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius:2px !important;
+    background-color:  #bec8d34a
+    !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    cursor:pointer ;
+  }
+  
+  
+  .loginPage {
+    background-color: #ffffff; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-top : 50px !important;
+    margin-bottom : 40px;
+}
+
+.loginForm {
+    box-shadow: rgba(0, 0, 0, 0.099) 0px 14px 28px, rgba(0, 0, 0, 0.066) 0px 10px 10px;
+    border-radius: 12px !important; /* Rounded corners */
+    padding: 30px !important;
+    width: 400px; /* Adjust width as needed */
+}
+
+.loginForm h2 {
+    color: #333333; /* Dark text color */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.loginForm input,
+.loginForm input {
+    width: 100%;
+    padding: 12px 16px;
+    box-shadow: #422800 0px 0px 0 0;
+    border: 1px solid #000000 !important; /* Gray border */
+    border-radius: 30px; /* Rounded corners */
+    margin-bottom: 20px;
+    font-size: .8rem !important;
+}
+
+.loginForm input:focus,
+.loginForm input:focus {
+    box-shadow: #422800 4px 4px 0 0;
+    border-color: #80bdff; /* Border color on focus */
+}
+
+
+.loginForm button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.loginForm button:focus {
+    outline: none; /* Remove focus outline */
+}
+
+.bold-form-label{
+    font-weight: 500;
+}
+
+.loginForm button {
+    width: 60%;
+    padding: 12px;
+    font-weight: 500;
+    background-color: #4caf50; /* Green button background */
+    border: none;
+    color: white; /* Text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top:10px;
+    box-shadow: #422800 4px 4px 0 0;
+}
+
+.button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+
+.button-74:hover {
+  background-color: #fff;
+
+}
+
+.button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.form-control::placeholder{
+    color: #bebebe;
+}
+
+.top--title{
+    background-color: #bec8d326;
+}
+
+.back-button {
+  padding: 0px 8px !important; /* Reduced padding */
+  font-weight: 500 !important;
+  color: #9d9d9d !important; /* Text color */
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+  margin-top: 10px !important;
+  border: none !important;
+  background-color: transparent !important; /* Remove background color */
+  box-shadow: none !important; /* Remove box shadow */
+  font-size: 12px;
+  margin-left:0px !important;
+  width:100%;
+  max-width:100%;
+  text-align: left;
+}
+
+.form-container { 
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding:2em .4em;
+}
+
+.employee-image {
+  max-width: 100px; 
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.HomeCard {
+  box-shadow: rgba(0, 0, 0, 0.067) 0px 5px 18px, rgba(0, 0, 0, 0.045) 0px 5px 10px;
+  border-radius: 12px !important;
+  padding: 30px !important;
+  transition: transform 0.3s ease;
+}
+
+.HomeCard:hover {
+  transform: scale(1.04);
+  animation: bounce 0.5s ease;
+}
+
+.sidebar-toggle {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  z-index: 999;
+}
+
+
+.ms-2 {
+  margin-left: 0rem !important;
+}
+
+.header-employee{
+  background-color: #bec8d326;
+  padding: 15px 20px;
+}
+.logoutbtn{
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
