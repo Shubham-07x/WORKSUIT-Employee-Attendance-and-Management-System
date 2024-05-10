@@ -9,6 +9,7 @@ import EmployeeCalendar from './EmployeeCalendar';
 
 function EmployeeDetail() {
     const [employee, setEmployee] = useState(null);
+    const [category, setCategory] = useState(null);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -23,6 +24,20 @@ function EmployeeDetail() {
             })
             .catch(err => console.error(err));
     }, [id]);
+
+    useEffect(() => {
+        if (employee) { 
+            axios.get(`http://localhost:3000/employee/category/${employee.category_id}`)
+                .then(result => {
+                    if (result.data.success && result.data.category) {
+                        setCategory(result.data.category);
+                    } else {
+                        console.error("Invalid response format:", result.data);
+                    }
+                })
+                .catch(err => console.error(err));
+        }
+    }, [employee]);
 
     const handleLogout = () => {
         axios.defaults.withCredentials = true;
@@ -78,7 +93,7 @@ function EmployeeDetail() {
                                         <div className="details">
                                             <p><span className='detailsTitle'>Employee ID:</span> {employee.id}</p>
                                             <p><span className='detailsTitle'>Email:</span> {employee.email}</p>
-                                            <p><span className='detailsTitle'>Salary:</span> ₹{employee.salary}</p>
+                                            {category && <p><span className='detailsTitle'>Category:</span> {category.name}</p>}
                                         </div>
                                         <div className="buttons">
                                             <ClockIn />

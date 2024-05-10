@@ -14,40 +14,102 @@ const ClockIn = () => {
     const [loading, setLoading] = useState(false);
     const [clockedIn, setClockedIn] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [officeLocations, setOfficeLocations] = useState([]);
 
     useEffect(() => {
-        // Check if employee is currently clocked in
-        const checkClockInStatus = async () => {
+        // Fetch office location data when component mounts
+        const fetchOfficeLocations = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/employee/employee_is_clocked_in/${id}`);
-                setClockedIn(response.data.clockedIn);
+                const response = await axios.get(`http://localhost:3000/employee/office_location`);
+                setOfficeLocations(response.data.officeLocations);
             } catch (error) {
-                console.error('Error while checking clock-in status:', error);
+                console.error('Error fetching office locations:', error);
             }
         };
 
-        checkClockInStatus();
-    }, [id]);
+        fetchOfficeLocations();
+
+        // Check local storage for clock-in status
+        const clockInStatus = localStorage.getItem('clockInStatus');
+        if (clockInStatus) {
+            setClockedIn(JSON.parse(clockInStatus));
+        }
+    }, []);
+
+    const updateClockInStatus = (status) => {
+        localStorage.setItem('clockInStatus', JSON.stringify(status));
+        setClockedIn(status);
+    };
 
     const handleClockIn = async (e) => {
         e.preventDefault();
         setLoading(true);
-        try {
-            const response = await axios.post(`http://localhost:3000/employee/employee_clockin/${id}`, {
-                location: location === 'other' ? otherLocation : location,
-                work_from_type: workFromType
-            });
-            if (response.data.status === 'success') {
-                console.log('Clock-in successful');
-                setClockedIn(true);
-                setShowModal(false);
-                toast.success('Clock-in successful');
+
+        // Get user's current location
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const userLatitude = position.coords.latitude;
+                const userLongitude = position.coords.longitude;
+
+                // Compare user's location with office locations
+                const isAtOfficeLocation = checkOfficeLocation(userLatitude, userLongitude);
+                
+                if (!isAtOfficeLocation && location === 'office') {
+                    setLoading(false);
+                    toast.error('You are not at the office location.');
+                    return;
+                }
+
+                try {
+                    const response = await axios.post(`http://localhost:3000/employee/employee_clockin/${id}`, {
+                        location: location === 'other' ? otherLocation : location,
+                        work_from_type: workFromType
+                    });
+                    if (response.data.status === 'success') {
+                        console.log('Clock-in successful');
+                        updateClockInStatus(true);
+                        setShowModal(false);
+                        toast.success('Clock-in successful');
+                    }
+                } catch (error) {
+                    console.error('Error while clocking in:', error);
+                } finally {
+                    setLoading(false);
+                }
+            },
+            (error) => {
+                console.error('Error getting user location:', error);
+                setLoading(false);
+                toast.error('Error getting your location. Please try again.');
             }
-        } catch (error) {
-            console.error('Error while clocking in:', error);
-        } finally {
-            setLoading(false);
+        );
+    };
+
+    const checkOfficeLocation = (userLatitude, userLongitude) => {
+        // Iterate through office locations and check if user's location matches any office location
+        for (const officeLocation of officeLocations) {
+            const officeLatitude = officeLocation.latitude;
+            const officeLongitude = officeLocation.longitude;
+            const YOUR_TOLERANCE = 0.010;
+            const distance = calculateDistance(userLatitude, userLongitude, officeLatitude, officeLongitude);
+            if (distance <= YOUR_TOLERANCE) {
+                return true;
+            }
         }
+        return false;
+    };
+
+    const calculateDistance = (lat1, lon1, lat2, lon2) => {
+        // Calculation of distance between two points using haversine formula
+        const R = 6371;
+        const dLat = (lat2 - lat1) * (Math.PI / 180);
+        const dLon = (lon2 - lon1) * (Math.PI / 180);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distance = R * c;
+        return distance;
     };
 
     const handleClockOut = async () => {
@@ -56,7 +118,7 @@ const ClockIn = () => {
             const response = await axios.post(`http://localhost:3000/employee/employee_clockout/${id}`);
             if (response.data.success) {
                 console.log('Clock-out successful');
-                setClockedIn(false);
+                updateClockInStatus(false);
                 toast.success('Clock-out successful'); 
             }
         } catch (error) {
@@ -87,6 +149,7 @@ const ClockIn = () => {
                                         <label htmlFor="location" style={{ display: 'flex', alignItems: 'center', textAlign: 'left', marginTop: '10px', marginBottom: '10px' }}>Location</label>
                                         <select className="form-control" id="location" value={location} onChange={(e) => setLocation(e.target.value)}>
                                             <option value="Jabalpur, Madhya Pradesh">Jabalpur, Madhya Pradesh</option>
+                                            <option value="office">Office</option>
                                             <option value="other">Other</option>
                                         </select>
                                         {location === 'other' && (

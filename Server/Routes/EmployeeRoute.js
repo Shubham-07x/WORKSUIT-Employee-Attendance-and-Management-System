@@ -174,4 +174,33 @@ router.get("/calendar/:employeeId", async (req, res) => {
   }
 });
 
+// Define a route to get category by ID
+router.get("/category/:id", async (req, res) => {
+  const categoryId = req.params.id;
+
+  try {
+    const category = await db.query("SELECT * FROM category WHERE id = $1", [categoryId]);
+
+    if (category.rows.length === 0) {
+      return res.status(404).json({ success: false, error: "Category not found" });
+    }
+    res.status(200).json({ success: true, category: category.rows[0] });
+  } catch (error) {
+    console.error("Error fetching category:", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
+});
+
+
+// Route to get office location data
+router.get("/office_location", async (req, res) => {
+  try {
+    const result = await db.query("SELECT * FROM office_location");
+    res.status(200).json({ success: true, officeLocations: result.rows });
+  } catch (error) {
+    console.error("Error fetching office locations:", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
+});
+
 export { router as employeeRouter };
