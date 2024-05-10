@@ -195,7 +195,7 @@ router.get("/category/:id", async (req, res) => {
 // Route to get office location data
 router.get("/office_location", async (req, res) => {
   try {
-    const result = await db.query("SELECT * FROM office_location");
+    const result = await db.query("SELECT * FROM office_locations");
     res.status(200).json({ success: true, officeLocations: result.rows });
   } catch (error) {
     console.error("Error fetching office locations:", error);
