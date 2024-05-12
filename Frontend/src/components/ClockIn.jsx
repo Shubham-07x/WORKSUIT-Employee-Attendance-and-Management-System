@@ -66,16 +66,23 @@ const ClockIn = () => {
                 async (position) => {
                     const userLatitude = position.coords.latitude;
                     const userLongitude = position.coords.longitude;
-        
+    
+                    // Log employee's current location
+                    console.log('Employee Current Location:', userLatitude, userLongitude);
+    
                     // Compare user's location with office locations
                     const isAtOfficeLocation = checkOfficeLocation(userLatitude, userLongitude);
-                    
+    
+                    // Log office locations
+                    console.log('Office Locations:', officeLocations);
+    
                     if (!isAtOfficeLocation) {
                         setLoading(false);
                         toast.error('You are not at the office location.');
+                        console.error('Employee is not at the office location.');
                         return;
                     }
-        
+    
                     try {
                         const response = await axios.post(`http://localhost:3000/employee/employee_clockin/${id}`, {
                             work_from_type: 'Office'
@@ -100,6 +107,7 @@ const ClockIn = () => {
             );
         }
     };
+    
 
     const checkOfficeLocation = (userLatitude, userLongitude) => {
         // Iterate through office locations and check if user's location matches any office location

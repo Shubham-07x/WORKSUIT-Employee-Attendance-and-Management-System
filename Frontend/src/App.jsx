@@ -13,6 +13,7 @@ import Start from './components/Start'
 import EmployeeLogin from './components/EmployeeLogin'
 import EmployeeDetail from './components/EmployeeDetail'
 import PrivateRoute from './components/PrivateRoute'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {

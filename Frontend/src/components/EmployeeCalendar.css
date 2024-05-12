@@ -94,11 +94,11 @@
 
 
    .react-calendar__month-view__weekdays__weekday{
-    border: 1px solid rgb(245, 245, 245);
+    border: 0px solid rgb(245, 245, 245);
     background-color: #f8f8fa;
-    border-radius: 6px;
-    margin: 5px;
-    max-width: 160px;
+    border-radius: 0px;
+    margin-bottom: 5px;
+    max-width: 180px;
     min-width: 50px
    }
 
