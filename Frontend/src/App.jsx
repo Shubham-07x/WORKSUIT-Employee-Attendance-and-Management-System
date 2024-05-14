@@ -14,6 +14,7 @@ import EmployeeLogin from './components/EmployeeLogin'
 import EmployeeDetail from './components/EmployeeDetail'
 import PrivateRoute from './components/PrivateRoute'
 import 'react-toastify/dist/ReactToastify.css';
+import Office from './components/Office';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path='/dashboard/add_category' element={<AddCategory />}></Route>
           <Route path='/dashboard/add_employee' element={<AddEmployee />}></Route>
           <Route path='/dashboard/edit_employee/:id' element={<EditEmployee />}></Route>
+          <Route path='/dashboard/officeaddress' element={<Office />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

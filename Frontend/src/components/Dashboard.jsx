@@ -84,6 +84,16 @@ const Dashboard = () => {
                                     <span className="ms-2 d-none d-sm-inline">Admins</span>
                                 </Link>
                             </li>
+                            <li className="w-100">
+                                <Link
+                                    to="/dashboard/officeaddress"
+                                    className={`nav-link px-3 py-2 my-1 align-middle text-white ${location.pathname === '/dashboard/officeaddress' ? 'active' : ''}`}
+                                    style={{ paddingLeft: '1rem', paddingRight: '1rem' }}
+                                >
+                                    <i className="fs-4 mx-2 bi-person ms-2"></i>
+                                    <span className="ms-2 d-none d-sm-inline">Office</span>
+                                </Link>
+                            </li>
                         </ul>
                         <Button variant="outline-danger" onClick={handleLogout} className="mt-auto mb-3 w-100" style={{ paddingLeft: '0.75rem', paddingRight: '0.75rem' }}>
                             <i className="fs-4 mx-1 bi-power ms-2"></i>
@@ -94,7 +104,7 @@ const Dashboard = () => {
                 <div className="col p-0 rounded-lg">
                     <div className="p-3 d-flex justify-content-center top--title ">
                         <h4 className="m-0">
-                            <span style={{ color: "#1c64c7", fontWeight: "bold" }}>WORKSUIT</span> -
+                            <span style={{ fontWeight: "bold" }} className="animate-charcter">WORKSUIT</span> -
                             <span style={{ color: "grey", fontSize: "1.2rem" }}> Employee Attendance and Management System</span>
                         </h4>
                     </div>

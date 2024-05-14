@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -47,6 +47,7 @@ function Login() {
     };
     
     return (
+        <div  id='form-body'>
         <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
             <ToastContainer position="bottom-right" />
             <div className='p-3 rounded border loginForm'>
@@ -79,6 +80,7 @@ function Login() {
                     <button type="submit" className='button-74'>Log in</button>
                 </form>
             </div>
+        </div>
         </div>
     );
 }

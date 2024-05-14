@@ -49,6 +49,7 @@ function EmployeeLogin() {
     };
 
     return (
+        <div  id='form-body'>
         <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
             <div className='p-3 rounded border loginForm'>
                 <h2>Login Page</h2>
@@ -80,6 +81,7 @@ function EmployeeLogin() {
                     <button type="submit" className='button-74'>Log in</button>
                 </form>
             </div>
+        </div>
         </div>
     );
 }

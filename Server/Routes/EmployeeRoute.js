@@ -203,4 +203,33 @@ router.get("/office_location", async (req, res) => {
   }
 });
 
+// Route to add a new office location
+router.post("/office_location", async (req, res) => {
+  const { name, latitude, longitude, address } = req.body;
+
+  try {
+    const result = await db.query(
+      "INSERT INTO office_locations (name, latitude, longitude, address) VALUES ($1, $2, $3, $4) RETURNING *",
+      [name, latitude, longitude, address]
+    );
+
+    res.status(201).json({ success: true, officeLocation: result.rows[0] });
+  } catch (error) {
+    console.error("Error adding office location:", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
+});
+
+// Route to delete an office location by ID
+router.delete("/office_location/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    await db.query("DELETE FROM office_locations WHERE id = $1", [id]);
+    res.status(200).json({ success: true, message: "Office location deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting office location:", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
+});
 export { router as employeeRouter };
