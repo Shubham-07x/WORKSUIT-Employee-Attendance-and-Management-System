@@ -5,7 +5,7 @@
 -- Dumped from database version 15.4
 -- Dumped by pg_dump version 15.4
 
--- Started on 2024-05-08 00:31:18
+-- Started on 2024-05-15 21:15:42
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -53,7 +53,7 @@ CREATE SEQUENCE public.admin_id_seq
 ALTER TABLE public.admin_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3357 (class 0 OID 0)
+-- TOC entry 3367 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: admin_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -91,7 +91,7 @@ CREATE SEQUENCE public.category_id_seq
 ALTER TABLE public.category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3358 (class 0 OID 0)
+-- TOC entry 3368 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -133,7 +133,7 @@ CREATE SEQUENCE public.clock_records_id_seq
 ALTER TABLE public.clock_records_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3359 (class 0 OID 0)
+-- TOC entry 3369 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: clock_records_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -177,7 +177,7 @@ CREATE SEQUENCE public.employee_id_seq
 ALTER TABLE public.employee_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3360 (class 0 OID 0)
+-- TOC entry 3370 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: employee_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -186,7 +186,48 @@ ALTER SEQUENCE public.employee_id_seq OWNED BY public.employee.id;
 
 
 --
--- TOC entry 3188 (class 2604 OID 32843)
+-- TOC entry 223 (class 1259 OID 32910)
+-- Name: office_locations; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.office_locations (
+    id integer NOT NULL,
+    name character varying(100) NOT NULL,
+    latitude double precision NOT NULL,
+    longitude double precision NOT NULL,
+    address character varying(255)
+);
+
+
+ALTER TABLE public.office_locations OWNER TO postgres;
+
+--
+-- TOC entry 222 (class 1259 OID 32909)
+-- Name: office_locations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.office_locations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.office_locations_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3371 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: office_locations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.office_locations_id_seq OWNED BY public.office_locations.id;
+
+
+--
+-- TOC entry 3193 (class 2604 OID 32843)
 -- Name: admin id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -194,7 +235,7 @@ ALTER TABLE ONLY public.admin ALTER COLUMN id SET DEFAULT nextval('public.admin_
 
 
 --
--- TOC entry 3189 (class 2604 OID 32850)
+-- TOC entry 3194 (class 2604 OID 32850)
 -- Name: category id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -202,7 +243,7 @@ ALTER TABLE ONLY public.category ALTER COLUMN id SET DEFAULT nextval('public.cat
 
 
 --
--- TOC entry 3191 (class 2604 OID 32901)
+-- TOC entry 3196 (class 2604 OID 32901)
 -- Name: clock_records id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -210,7 +251,7 @@ ALTER TABLE ONLY public.clock_records ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 3190 (class 2604 OID 32887)
+-- TOC entry 3195 (class 2604 OID 32887)
 -- Name: employee id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -218,7 +259,15 @@ ALTER TABLE ONLY public.employee ALTER COLUMN id SET DEFAULT nextval('public.emp
 
 
 --
--- TOC entry 3345 (class 0 OID 32840)
+-- TOC entry 3197 (class 2604 OID 32913)
+-- Name: office_locations id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.office_locations ALTER COLUMN id SET DEFAULT nextval('public.office_locations_id_seq'::regclass);
+
+
+--
+-- TOC entry 3353 (class 0 OID 32840)
 -- Dependencies: 215
 -- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -229,7 +278,7 @@ INSERT INTO public.admin (id, email, password) VALUES (1, 'admin@gmail.com', '$2
 
 
 --
--- TOC entry 3347 (class 0 OID 32847)
+-- TOC entry 3355 (class 0 OID 32847)
 -- Dependencies: 217
 -- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -252,20 +301,29 @@ INSERT INTO public.category (id, name) VALUES (23, 'Social Media Manager');
 
 
 --
--- TOC entry 3351 (class 0 OID 32898)
+-- TOC entry 3359 (class 0 OID 32898)
 -- Dependencies: 221
 -- Data for Name: clock_records; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (16, 1, '2024-05-04 11:53:28.138724', '2024-05-04 11:58:14.129853', 'other', 'office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (41, 1, '2024-05-10 16:31:16.450227', '2024-05-10 16:31:20.940552', '', 'office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (56, 8, '2024-05-10 18:59:56.084987', '2024-05-10 18:59:57.292474', NULL, 'office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (57, 8, '2024-05-10 19:05:02.652784', '2024-05-10 19:05:04.642593', NULL, 'home');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (58, 8, '2024-05-10 19:06:43.116945', '2024-05-10 19:06:47.306504', NULL, 'Office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (16, 1, '2024-05-04 11:53:28.138724', '2024-05-04 11:58:14.129853', NULL, 'office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (40, 7, '2024-05-08 15:51:01.484204', '2024-05-08 15:51:10.371497', NULL, 'office');
 INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (32, 8, '2024-05-05 23:27:33.991099', '2024-05-05 23:27:34.912017', '', 'office');
 INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (33, 8, '2024-05-06 00:37:11.27528', '2024-05-06 00:37:13.869628', '', 'office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (54, 7, '2024-05-10 18:56:36.8194', '2024-05-10 18:56:42.062523', NULL, 'home');
 INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (35, 1, '2024-05-06 13:12:06.876901', '2024-05-06 13:12:09.73074', '', 'office');
 INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (36, 1, '2024-05-07 08:48:42.187232', '2024-05-07 08:48:43.416327', '', 'office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (39, 1, '2024-05-08 12:18:51.77811', '2024-05-08 12:18:54.712723', '', 'office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (61, 1, '2024-05-11 16:05:57.747672', '2024-05-11 16:06:02.337345', NULL, 'Office');
+INSERT INTO public.clock_records (id, employee_id, clock_in, clock_out, location, work_from_type) VALUES (62, 1, '2024-05-14 11:43:39.499172', '2024-05-14 11:44:24.904526', NULL, 'Office');
 
 
 --
--- TOC entry 3349 (class 0 OID 32884)
+-- TOC entry 3357 (class 0 OID 32884)
 -- Dependencies: 219
 -- Data for Name: employee; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -276,7 +334,17 @@ INSERT INTO public.employee (id, name, email, password, address, salary, image, 
 
 
 --
--- TOC entry 3361 (class 0 OID 0)
+-- TOC entry 3361 (class 0 OID 32910)
+-- Dependencies: 223
+-- Data for Name: office_locations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.office_locations (id, name, latitude, longitude, address) VALUES (2, 'Branch 2', 23.2016602, 79.9153398, 'Samdariya Green City');
+INSERT INTO public.office_locations (id, name, latitude, longitude, address) VALUES (1, 'Branch 1', 23.1998341, 79.8788018, 'Global Engineering College');
+
+
+--
+-- TOC entry 3372 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: admin_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -285,7 +353,7 @@ SELECT pg_catalog.setval('public.admin_id_seq', 6, true);
 
 
 --
--- TOC entry 3362 (class 0 OID 0)
+-- TOC entry 3373 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -294,16 +362,16 @@ SELECT pg_catalog.setval('public.category_id_seq', 23, true);
 
 
 --
--- TOC entry 3363 (class 0 OID 0)
+-- TOC entry 3374 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: clock_records_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.clock_records_id_seq', 36, true);
+SELECT pg_catalog.setval('public.clock_records_id_seq', 62, true);
 
 
 --
--- TOC entry 3364 (class 0 OID 0)
+-- TOC entry 3375 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: employee_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -312,7 +380,16 @@ SELECT pg_catalog.setval('public.employee_id_seq', 8, true);
 
 
 --
--- TOC entry 3193 (class 2606 OID 32845)
+-- TOC entry 3376 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: office_locations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.office_locations_id_seq', 2, true);
+
+
+--
+-- TOC entry 3199 (class 2606 OID 32845)
 -- Name: admin admin_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -321,7 +398,7 @@ ALTER TABLE ONLY public.admin
 
 
 --
--- TOC entry 3195 (class 2606 OID 32854)
+-- TOC entry 3201 (class 2606 OID 32854)
 -- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -330,7 +407,7 @@ ALTER TABLE ONLY public.category
 
 
 --
--- TOC entry 3199 (class 2606 OID 32903)
+-- TOC entry 3205 (class 2606 OID 32903)
 -- Name: clock_records clock_records_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -339,7 +416,7 @@ ALTER TABLE ONLY public.clock_records
 
 
 --
--- TOC entry 3197 (class 2606 OID 32891)
+-- TOC entry 3203 (class 2606 OID 32891)
 -- Name: employee employee_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -348,7 +425,16 @@ ALTER TABLE ONLY public.employee
 
 
 --
--- TOC entry 3200 (class 2606 OID 32892)
+-- TOC entry 3207 (class 2606 OID 32915)
+-- Name: office_locations office_locations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.office_locations
+    ADD CONSTRAINT office_locations_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3208 (class 2606 OID 32892)
 -- Name: employee employee_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -357,7 +443,7 @@ ALTER TABLE ONLY public.employee
 
 
 --
--- TOC entry 3201 (class 2606 OID 32904)
+-- TOC entry 3209 (class 2606 OID 32904)
 -- Name: clock_records fk_employee; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -365,7 +451,7 @@ ALTER TABLE ONLY public.clock_records
     ADD CONSTRAINT fk_employee FOREIGN KEY (employee_id) REFERENCES public.employee(id);
 
 
--- Completed on 2024-05-08 00:31:18
+-- Completed on 2024-05-15 21:15:43
 
 --
 -- PostgreSQL database dump complete
