@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
+import { useSpring, animated } from 'react-spring';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -23,6 +24,20 @@ const Dashboard = () => {
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
+    };
+
+    const AnimatedComponent = () => {
+        const props = useSpring({
+            from: { opacity: 0.1 },
+        to: { opacity: 1 },
+        config: { duration: 300 }
+        });
+
+        return (
+            <animated.div style={props}>
+                <Outlet />
+            </animated.div>
+        );
     };
 
     return (
@@ -105,11 +120,11 @@ const Dashboard = () => {
                     <div className="p-3 d-flex justify-content-center top--title ">
                         <h4 className="m-0">
                             <span style={{ fontWeight: "bold" }} className="animate-charcter">WORKSUIT</span> -
-                            <span style={{ color: "grey", fontSize: "1.2rem" }}> Employee Attendance and Management System</span>
+                            <span style={{ color: "#b2b2b2", fontSize: "1.2rem" }}> Employee Attendance and Management System</span>
                         </h4>
                     </div>
-                    <div className="mt-2" style={{ maxHeight: "calc(100vh - 120px)", overflowY: "auto" }}>
-                        <Outlet />
+                    <div className="mt-2" style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}>
+                    <AnimatedComponent />
                     </div>
                 </div>
             </div>

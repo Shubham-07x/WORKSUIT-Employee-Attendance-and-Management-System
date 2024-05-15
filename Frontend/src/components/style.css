@@ -225,10 +225,11 @@
 }
 
 .HomeCard {
-  box-shadow: rgba(0, 0, 0, 0.067) 0px 5px 18px, rgba(0, 0, 0, 0.045) 0px 5px 10px;
-  border-radius: 12px !important;
+  box-shadow: rgba(0, 0, 0, 0.048) 0px 5px 12px, rgba(0, 0, 0, 0.045) 0px 5px 10px;
+  border-radius: 16px !important;
   padding: 30px !important;
   transition: transform 0.3s ease;
+  border: 5px solid #fff;
 }
 
 .HomeCard:hover {
@@ -290,7 +291,7 @@
   -webkit-text-fill-color: transparent;
   animation: textclip 5s linear infinite;
   display: inline-block;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: bold;
 }
 

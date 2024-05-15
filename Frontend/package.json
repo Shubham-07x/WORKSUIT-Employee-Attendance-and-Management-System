@@ -26,6 +26,8 @@
     "react-fontawesome-svg-icon": "^1.1.2",
     "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^6.23.0",
+    "react-scroll": "^1.9.0",
+    "react-spring": "^9.7.3",
     "react-toastify": "^10.0.5"
   },
   "devDependencies": {
