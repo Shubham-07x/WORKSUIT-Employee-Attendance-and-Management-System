@@ -9,11 +9,10 @@ function EmployeeCalendar({ employeeId }) {
   const [selectedDate, setSelectedDate] = useState(new Date()); // Initialize selectedDate with current date
 
   useEffect(() => {
-    // Fetch all clock records for the employee
     fetchData();
-  }, [employeeId]); // Trigger useEffect when employeeId changes
+  }, [employeeId]); 
 
-  // Function to fetch data from the server
+  
   const fetchData = () => {
     const formattedDate = selectedDate.toISOString().slice(0, 10); // Format date as 'YYYY-MM-DD'
     axios.get(`http://localhost:3000/employee/calendar/${employeeId}?date=${formattedDate}`)

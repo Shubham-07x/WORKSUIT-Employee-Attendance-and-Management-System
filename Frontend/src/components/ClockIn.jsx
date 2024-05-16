@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const ClockIn = () => {
     const { id } = useParams(); 
     const [location, setLocation] = useState('office');
-    const [workFromType, setWorkFromType] = useState('office'); // Added missing state variable
+    const [workFromType, setWorkFromType] = useState('office'); 
     const [loading, setLoading] = useState(false);
     const [clockedIn, setClockedIn] = useState(false);
     const [showModal, setShowModal] = useState(false);

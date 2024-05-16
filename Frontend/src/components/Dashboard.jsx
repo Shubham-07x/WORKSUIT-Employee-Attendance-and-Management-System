@@ -41,7 +41,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="container-fluid" style={{ overflow: "hidden" }}>
+        <div className="container-fluid" style={{ overflow: "hidden"}}>
             <div className={`row flex-nowrap ${sidebarOpen ? 'sidebar-open' : ''}`}>
                 <div className="col-auto col-md-3 col-xl-2 bg-dark sidebar">
                     <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -63,7 +63,7 @@ const Dashboard = () => {
                                     className={`nav-link text-white px-3 my-1 py-2 align-middle ${location.pathname === '/dashboard' ? 'active' : ''}`}
                                     style={{ paddingLeft: '1rem', paddingRight: '1rem' }}
                                 >
-                                    <i className="fs-4 mx-2 bi-speedometer2 ms-2"></i>
+                                    <i className="fs-4 mx-2 bi-columns ms-2"></i>
                                     <span className="ms-2 d-none d-sm-inline">Dashboard</span>
                                 </Link>
                             </li>
@@ -85,7 +85,7 @@ const Dashboard = () => {
                                     className={`nav-link px-3 py-2 my-1 align-middle text-white ${location.pathname === '/dashboard/category' ? 'active' : ''}`}
                                     style={{ paddingLeft: '1rem', paddingRight: '1rem' }}
                                 >
-                                    <i className="fs-4 mx-2 bi-columns ms-2"></i>
+                                    <i className="fs-4 mx-2 bi bi-tags ms-2"></i>
                                     <span className="ms-2 d-none d-sm-inline">Category</span>
                                 </Link>
                             </li>
@@ -105,7 +105,7 @@ const Dashboard = () => {
                                     className={`nav-link px-3 py-2 my-1 align-middle text-white ${location.pathname === '/dashboard/officeaddress' ? 'active' : ''}`}
                                     style={{ paddingLeft: '1rem', paddingRight: '1rem' }}
                                 >
-                                    <i className="fs-4 mx-2 bi-person ms-2"></i>
+                                    <i className="fs-4 mx-2 bi bi-geo-alt ms-2"></i>
                                     <span className="ms-2 d-none d-sm-inline">Office</span>
                                 </Link>
                             </li>
@@ -116,7 +116,7 @@ const Dashboard = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="col p-0 rounded-lg">
+                <div className="col p-0 rounded-lg bg-white">
                     <div className="p-3 d-flex justify-content-center top--title ">
                         <h4 className="m-0">
                             <span style={{ fontWeight: "bold" }} className="animate-charcter">WORKSUIT</span> -
