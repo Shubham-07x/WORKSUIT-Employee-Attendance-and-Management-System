@@ -50,7 +50,7 @@ function EmployeeLogin() {
 
     return (
         <div  id='form-body'>
-        <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
+        <div className='d-flex justify-content-center align-items-center vh-100 loginPage2'>
             <div className='p-3 rounded border loginForm'>
                 <h2>Login Page</h2>
                 <form onSubmit={handleSubmit}>

@@ -29,7 +29,7 @@ const Start = () => {
 
     return (
         <div  id='form-body'>
-        <div className="d-flex justify-content-center align-items-center vh-100 loginPage" >
+        <div className="d-flex justify-content-center align-items-center vh-100 loginPage2" >
             <div className="p-3 rounded border loginForm">
                 <h2 className="text-center">Login As</h2>
                 <div className="d-flex justify-content-between mt-5 mb-2">

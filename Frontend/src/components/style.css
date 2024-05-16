@@ -17,7 +17,7 @@
   
   
   .loginPage {
-    background-color: #ffffff; /* Light gray background */
+    background-color: #ffffff; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,15 +26,26 @@
     margin-bottom : 40px;
 }
 
+.loginPage2 {
+  background-color: #ffffff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-top : 0px !important;
+  margin-bottom : 0px;
+}
+
 .loginForm {
-    box-shadow: rgba(0, 0, 0, 0.099) 0px 14px 28px, rgba(0, 0, 0, 0.066) 0px 10px 10px;
-    border-radius: 12px !important; /* Rounded corners */
+    box-shadow: rgba(0, 0, 0, 0.099) 0px 12px 25px, rgba(0, 0, 0, 0.066) 0px 10px 10px;
+    border-radius: 12px !important; 
     padding: 30px !important;
-    width: 400px; /* Adjust width as needed */
+    width: 400px;
+    border: 1px solid #f5f6f7 !important;
 }
 
 .loginForm h2 {
-    color: #333333; /* Dark text color */
+    color: #333333; 
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -44,20 +55,16 @@
     width: 100%;
     padding: 12px 16px;
     box-shadow: #422800 0px 0px 0 0;
-    border: 1px solid #000000 !important; /* Gray border */
-    border-radius: 30px; /* Rounded corners */
+    border: 1px solid #000000 !important; 
+    border-radius: 30px; 
     margin-bottom: 20px;
     font-size: .8rem !important;
-}
-
-.loginForm input:focus,
-.loginForm input:focus {
 }
 
 
 
 .loginForm button:focus {
-    outline: none; /* Remove focus outline */
+    outline: none;
 }
 
 .bold-form-label{
@@ -69,7 +76,7 @@
     padding: 12px;
     font-weight: 500;
     border: none;
-    color: white; /* Text color */
+    color: white; 
     cursor: pointer;
     transition: background-color 0.3s ease;
     background-color: transparent !important;
@@ -195,15 +202,15 @@
 }
 
 .back-button {
-  padding: 0px 8px !important; /* Reduced padding */
+  padding: 0px 8px !important;
   font-weight: 500 !important;
-  color: #9d9d9d !important; /* Text color */
+  color: #9d9d9d !important; 
   cursor: pointer !important;
   transition: background-color 0.3s ease !important;
   margin-top: 10px !important;
   border: none !important;
-  background-color: transparent !important; /* Remove background color */
-  box-shadow: none !important; /* Remove box shadow */
+  background-color: transparent !important;
+  box-shadow: none !important;
   font-size: 12px;
   margin-left:0px !important;
   width:100%;
@@ -276,8 +283,8 @@
    text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
-    #6f47ff 0%,
-    #4d0b93 29%,
+    #4797ffb3 0%,
+    #ae62ff 29%,
     #ff1361 67%,
     #fff800 100%
   );
