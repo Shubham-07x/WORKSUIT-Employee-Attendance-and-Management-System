@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom'; 
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const ClockIn = () => {
-    const { id } = useParams(); 
+    const { id } = useParams();
     const [location, setLocation] = useState('office');
-    const [workFromType, setWorkFromType] = useState('office'); 
+    const [workFromType, setWorkFromType] = useState('office');
     const [loading, setLoading] = useState(false);
     const [clockedIn, setClockedIn] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -43,7 +42,7 @@ const ClockIn = () => {
     const handleClockIn = async (e) => {
         e.preventDefault();
         setLoading(true);
-    
+
         if (location === 'home') {
             try {
                 const response = await axios.post(`http://localhost:3000/employee/employee_clockin/${id}`, {
@@ -66,23 +65,23 @@ const ClockIn = () => {
                 async (position) => {
                     const userLatitude = position.coords.latitude;
                     const userLongitude = position.coords.longitude;
-    
+
                     // Log employee's current location
                     console.log('Employee Current Location:', userLatitude, userLongitude);
-    
+
                     // Compare user's location with office locations
                     const isAtOfficeLocation = checkOfficeLocation(userLatitude, userLongitude);
-    
+
                     // Log office locations
                     console.log('Office Locations:', officeLocations);
-    
+
                     if (!isAtOfficeLocation) {
                         setLoading(false);
                         toast.error('You are not at the office location.');
                         console.error('Employee is not at the office location.');
                         return;
                     }
-    
+
                     try {
                         const response = await axios.post(`http://localhost:3000/employee/employee_clockin/${id}`, {
                             work_from_type: 'Office'
@@ -107,7 +106,7 @@ const ClockIn = () => {
             );
         }
     };
-    
+
 
     const checkOfficeLocation = (userLatitude, userLongitude) => {
         // Iterate through office locations and check if user's location matches any office location
@@ -143,7 +142,7 @@ const ClockIn = () => {
             if (response.data.success) {
                 console.log('Clock-out successful');
                 updateClockInStatus(false);
-                toast.success('Clock-out successful'); 
+                toast.success('Clock-out successful');
             }
         } catch (error) {
             console.error('Error while clocking out:', error);
@@ -155,8 +154,9 @@ const ClockIn = () => {
     return (
         <div>
             {!clockedIn && (
-                <button type="button" className="btn btn-primary" onClick={() => setShowModal(true)}>
-                    <FontAwesomeIcon icon={faSignInAlt} /> Clock In
+                <button type="button" className="btn btn-primary d-flex align-items-center" onClick={() => setShowModal(true)}>
+                    <i className="fs-5 bi bi-box-arrow-in-right" style={{marginRight:'5px'}}></i>
+                    Clock In
                 </button>
             )}
             {showModal && (
@@ -197,7 +197,7 @@ const ClockIn = () => {
             {clockedIn && (
                 <div>
                     <button type="button" className="btn btn-danger" onClick={handleClockOut} disabled={loading}>
-                        <FontAwesomeIcon icon={faSignOutAlt} /> Clock Out
+                    <i className="fs-5 bi bi-box-arrow-right" style={{marginRight:'5px'}}></i> Clock Out
                     </button>
                 </div>
             )}
