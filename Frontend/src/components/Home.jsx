@@ -102,8 +102,8 @@ const Home = () => {
 
   return (
     <div>
-      <div className='p-3 d-flex justify-content-around mt-3'>
-        <div className='px-3 pt-2 pb-3 w-25 HomeCard' style={{backgroundColor: '#FFFAFA' }}>
+      <div className='p-3 d-flex flex-wrap justify-content-around mt-3'>
+        <div className='px-3 pt-2 pb-3 mb-3 HomeCard' style={{backgroundColor: '#FFFAFA', width: '300px' }}>
           <div className='text-center pb-1'>
             <h4>Admin</h4>
           </div>
@@ -113,7 +113,7 @@ const Home = () => {
             <h5>{adminTotal}</h5>
           </div>
         </div>
-        <div className='px-3 pt-2 pb-3 w-25 HomeCard' style={{backgroundColor: '#F7F9FF' }}>
+        <div className='px-3 pt-2 pb-3 mb-3 HomeCard' style={{backgroundColor: '#F7F9FF', width: '300px' }}>
           <div className='text-center pb-1'>
             <h4>Employee</h4>
           </div>
@@ -123,7 +123,7 @@ const Home = () => {
             <h5>{employeeTotal}</h5>
           </div>
         </div>
-        <div className='px-3 pt-2 pb-3 w-25 HomeCard' style={{backgroundColor: '#FFFDF8' }}>
+        <div className='px-3 pt-2 pb-3 mb-3 HomeCard' style={{backgroundColor: '#FFFDF8', width: '300px' }}>
           <div className='text-center pb-1'>
             <h4>Salary</h4>
           </div>
@@ -134,43 +134,44 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='mt-4 px-5 pt-3'>
-        <h3>List of Admins</h3>
-        <table className='table'>
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-  {admins.map(admin => (
-    <tr key={admin.id}>
-      <td>
-        {editingAdminId === admin.id ? (
-          <input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} />
-        ) : (
-          admin.email
-        )}
-      </td>
-      <td>
-        {editingAdminId === admin.id ? (
-          <div>
-            <button className="btn btn-success btn-sm mx-2" onClick={handleEditSubmit}>Save</button>
-            <button className="btn btn-warning btn-sm mx-2" onClick={() => setEditingAdminId(null)}>Cancel</button>
-          </div>
-        ) : (
-          <button className="btn btn-info btn-sm mx-2" onClick={() => handleEditAdmin(admin.id)}>Edit</button>
-        )}
-        {editingAdminId !== admin.id && (
-          <button className="btn btn-danger btn-sm mx-2" onClick={() => handleDeleteAdmin(admin.id)}>Delete</button>
-        )}
-      </td>
-    </tr>
-  ))}
-</tbody>
-
-        </table>
+      <div className='mt-4 px-2'>
+        <h3 className="text-left px-5">List of Admins</h3>
+        <div className="table-responsive px-5">
+          <table className='table'>
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {admins.map(admin => (
+                <tr key={admin.id}>
+                  <td>
+                    {editingAdminId === admin.id ? (
+                      <input type="text" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} />
+                    ) : (
+                      admin.email
+                    )}
+                  </td>
+                  <td >
+                    {editingAdminId === admin.id ? (
+                      <div>
+                        <button className="btn btn-success btn-sm mx-2" onClick={handleEditSubmit}>Save</button>
+                        <button className="btn btn-warning btn-sm mx-2" onClick={() => setEditingAdminId(null)}>Cancel</button>
+                      </div>
+                    ) : (
+                      <>
+                        <button className="btn btn-info btn-sm mx-2" onClick={() => handleEditAdmin(admin.id)}>Edit</button>
+                        <button className="btn btn-danger btn-sm mx-2" onClick={() => handleDeleteAdmin(admin.id)}>Delete</button>
+                      </>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
