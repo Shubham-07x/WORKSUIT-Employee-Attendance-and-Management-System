@@ -60,7 +60,7 @@ function EmployeeDetail() {
 
     return (
         <div>
-            <header className="header-employee">
+            <header className="header-employee py-3"  style={{backgroundColor:'#f2f4f5'}}>
                 <div className="container-fluid">
                     <div className="row align-items-center">
                         <div className="col-md-6">
@@ -72,7 +72,7 @@ function EmployeeDetail() {
                                 <br />
                                 <span style={{ fontSize: "13px" }}>{currentDay}</span>
                             </div>
-                            <div className="mx-1"><Link to="/" onClick={handleLogout} className="logout-btn btn btn-outline-danger logoutbtn"><i className="bi bi-box-arrow-right"></i> Logout</Link></div>
+                            <div className="mx-1"><Link to="/" onClick={handleLogout} className="logout-btn btn btn-outline-danger logoutbtn py-2 mt-1"><i className="bi bi-box-arrow-right"></i> Logout</Link></div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ function EmployeeDetail() {
             <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="card shadow EmployeeCard">
+                        <div className="card shadow EmployeeCard mx-auto">
                             <div className="card-body">
                                 <div className="row align-items-center empCard">
                                     <div className="col-md-5">
