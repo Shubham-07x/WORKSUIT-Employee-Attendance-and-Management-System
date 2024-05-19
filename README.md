@@ -23,3 +23,5 @@
 
 ## Office Branch Locations
 ![Office Management](Frontend/public/images/github/Office.png)
+=======
+![Office Management](Frontend/public/images/github/Office.png)
