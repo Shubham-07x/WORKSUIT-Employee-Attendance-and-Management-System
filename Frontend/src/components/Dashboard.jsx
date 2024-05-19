@@ -46,7 +46,7 @@ const Dashboard = () => {
                     <div className="p-3 d-flex justify-content-center top--title">
                         <h4 className="m-0">
                             <span style={{ fontWeight: "bold" }} className={`animate-charcter ${!sidebarOpen ? 'hidden' : ''}`}>WORKSUITE</span> -
-                            <span style={{ color: "#b2b2b2", fontSize: "1.2rem" }} className={`${!sidebarOpen ? 'hidden' : ''}`}> Employee Attendance and Management System</span>
+                            <span style={{ color: "#b2b2b2", fontSize: "1.2rem", fontWeight: "500" }} className={`${!sidebarOpen ? 'hidden' : ''}`}> Employee Attendance and Management System</span>
                         </h4>
                     </div>
                     <div className="mt-2" style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}>

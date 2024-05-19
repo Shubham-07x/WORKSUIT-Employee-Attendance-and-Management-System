@@ -13,7 +13,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, handleLogout }) => {
                     className="d-flex align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none"
                 >
                     <span className="fs-5 fw-bolder d-flex align-items-center justify-content-center">
-                        <img src="/images/Worksuite-logo.png" alt="Logo Image" style={{ maxWidth: "40px", height: "auto", width:'40px !important'}} /><h2 style={{fontSize:'22px', fontWeight:'900', marginTop:'0px', marginBottom:'0px', fontFamily:'Quicksand'}}>{sidebarOpen ? 'WORKSUITE' : ''}</h2>
+                        <img src="/images/worksuite_img.png" alt="Logo Image" style={{ maxWidth: "40px", height: "auto", width:'40px !important'}} /><h2 style={{fontSize:'22px', fontWeight:'900', marginTop:'0px', marginBottom:'0px', fontFamily:'Quicksand'}}>{sidebarOpen ? 'WORKSUITE' : ''}</h2>
                     </span>
                 </Link>
                 <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
