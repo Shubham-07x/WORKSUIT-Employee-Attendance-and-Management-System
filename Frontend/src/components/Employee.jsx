@@ -29,7 +29,7 @@ const Employee = () => {
             .get("http://localhost:3000/auth/employee")
             .then((response) => {
               if (response.data.success) {
-                setEmployees(response.data.Result); // Update the state with the new list of employees
+                setEmployees(response.data.Result); 
               } else {
                 alert(response.data.message);
               }
