@@ -50,7 +50,8 @@ function Login() {
         <div  id='form-body'>
         <div className='d-flex justify-content-center align-items-center vh-100 loginPage2'>
             <ToastContainer position="bottom-right" />
-            <div className='p-3 rounded border loginForm'>
+            <div className="p-1 rounded loginForm">
+                    <div className="" style={{backgroundColor:'white', padding:'30px', borderRadius:'12px'}}>
                 <h2>Login Page</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
@@ -79,6 +80,7 @@ function Login() {
                     </div>
                     <button type="submit" className='button-74'>Log in</button>
                 </form>
+            </div>
             </div>
         </div>
         </div>

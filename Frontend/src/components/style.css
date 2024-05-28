@@ -37,11 +37,8 @@
 }
 
 .loginForm {
-    box-shadow: rgba(0, 0, 0, 0.099) 0px 12px 25px, rgba(0, 0, 0, 0.066) 0px 10px 10px;
-    border-radius: 12px !important; 
-    padding: 30px !important;
-    width: 400px;
-    border: 1px solid #f5f6f7 !important;
+    border-radius: 16px !important; 
+    width: 500px;
 }
 
 .loginForm h2 {
@@ -335,4 +332,9 @@
   justify-content: center;
   transition: padding 0.3s ease;
   overflow: hidden;
+}
+
+.loginForm {
+  background: linear-gradient(rgb(96, 206, 166) 20%, rgb(173, 222, 116) 20%, rgb(173, 222, 116) 40%, rgb(249, 220, 93) 40%, rgb(249, 220, 93) 60%, rgb(246, 173, 114) 60%, rgb(246, 173, 114) 80%, rgb(246, 126, 114) 80%);
+  border-radius: 16px;
 }

@@ -75,7 +75,8 @@ function AddEmployee() {
   };
   return (
     <div className='d-flex justify-content-center align-items-center mt-3 loginPage'>
-      <div className='p-3 rounded w-50 loginForm'>
+      <div className="p-1 rounded loginForm">
+                    <div className="" style={{backgroundColor:'white', padding:'30px', borderRadius:'12px'}}>
         <div className="mb-3">
           <button onClick={handleNavigateBack} className=" btn btn-link back-button ">&#8592; Back to Dashboard</button>
         </div>
@@ -181,6 +182,7 @@ function AddEmployee() {
             {error && <div className="text-danger mt-3">{error}</div>}
             {successMessage && <div className="text-success mt-3">{successMessage}</div>}
           </form>
+        </div>
         </div>
       </div>
     </div>

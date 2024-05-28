@@ -74,7 +74,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, handleLogout }) => {
                     <button className="border-0 d-lg-block d-none text-lightest font-weight-bold" id="sidebarToggle" style={{ backgroundColor: 'transparent', color: '#444' }} onClick={toggleSidebar}>
                     {!sidebarOpen ? <SidebarClose /> : <SidebarOpen />}
                     </button>
-                    <p className="mb-0 px-1 py-0 rounded f-10" style={{ color: '#4b4b4b', fontSize: '10px' }}>{!sidebarOpen ? '' : 'v1.0'}</p>
+                    <p className="mb-0 px-1 py-0 rounded f-10" style={{ color: '#555', fontSize: '10px' }}>{!sidebarOpen ? '' : 'v1.0'}</p>
                 </div>
             </div>
         </div>

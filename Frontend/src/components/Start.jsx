@@ -28,20 +28,22 @@ const Start = () => {
     };
 
     return (
-        <div  id='form-body'>
-        <div className="d-flex justify-content-center align-items-center vh-100 loginPage2" >
-            <div className="p-3 rounded border loginForm">
-                <h2 className="text-center">Login As</h2>
-                <div className="d-flex justify-content-between mt-5 mb-2">
-                    <button type="button" className="btn btn-primary button-74 mx-2" onClick={handleEmployeeLogin}>
-                        Employee
-                    </button>
-                    <button type="button" className="btn btn-success button-74 mx-2" onClick={handleAdminLogin}>
-                        Admin
-                    </button>
+        <div id='form-body'>
+            <div className="d-flex justify-content-center align-items-center vh-100 loginPage2" >
+                <div className="p-1 rounded loginForm">
+                    <div className="" style={{backgroundColor:'white', padding:'30px', borderRadius:'12px'}}>
+                        <h2 className="text-center">Login As</h2>
+                        <div className="d-flex justify-content-between mt-5 mb-2">
+                            <button type="button" className="btn btn-primary button-74 mx-2" onClick={handleEmployeeLogin}>
+                                Employee
+                            </button>
+                            <button type="button" className="btn btn-success button-74 mx-2" onClick={handleAdminLogin}>
+                                Admin
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     );
 };
