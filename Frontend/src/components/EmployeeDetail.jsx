@@ -59,9 +59,9 @@ function EmployeeDetail() {
     const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
 
     return (
-        <div>
-            <header className="header-employee py-3"  style={{backgroundColor:'#f2f4f5'}}>
-                <div className="container-fluid">
+        <div className='empPageColor'>
+            <header className="header-employee py-3"  style={{backgroundColor:'#fff'}}>
+                <div className="container-fluid ">
                     <div className="row align-items-center">
                         <div className="col-md-6">
                             <h5 className="welcome">Welcome {employee.name}</h5>

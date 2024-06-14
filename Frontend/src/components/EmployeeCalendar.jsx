@@ -36,7 +36,7 @@ function EmployeeCalendar({ employeeId }) {
     <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', marginTop: '60px' }}>
       <h2 className='text-center mt-5'>Attendance Calendar</h2>
       {/* Render the calendar component */}
-      <div style={{ marginTop: '30px', marginBottom: '40px', width: '100%' }}>
+      <div style={{ marginTop: '30px', paddingBottom: '60px', width: '100%' }}>
         <Calendar
           onChange={setSelectedDate} // Update selectedDate when the user selects a new date
           value={selectedDate} // Set the value of the calendar to selectedDate
