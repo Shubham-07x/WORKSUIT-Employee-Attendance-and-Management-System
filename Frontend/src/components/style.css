@@ -335,6 +335,7 @@
 }
 
 .loginForm {
-  background: linear-gradient(rgb(96, 206, 166) 20%, rgb(173, 222, 116) 20%, rgb(173, 222, 116) 40%, rgb(249, 220, 93) 40%, rgb(249, 220, 93) 60%, rgb(246, 173, 114) 60%, rgb(246, 173, 114) 80%, rgb(246, 126, 114) 80%);
+  border-top: 5px solid  #f93a13;
   border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
